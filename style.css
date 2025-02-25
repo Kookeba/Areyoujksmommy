@@ -34,7 +34,8 @@ button {
     top: auto;
     background-color: #7DCEFA;
     z-index: 1;
-    transform-origin: center center;
+    transform: translateY(-50%); /* 垂直居中 */
+    transform-origin: 50% 50%;
 }
 
 #yesButton {
@@ -60,19 +61,7 @@ button {
     }
 
     button {
-        display: inline-block;
-    margin: 10px 0;
-    position: relative;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 3px solid;
-    border-radius: 5px;
-    color: white;
-    top: auto;
-    background-color: #7DCEFA;
-    z-index: 1;
-    transform-origin: center center;
+        font-size: 28px;
     }
     #yesButton {
     background-color: #FFC0CB;
