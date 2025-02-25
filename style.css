@@ -60,8 +60,33 @@ button {
     }
 
     button {
-        font-size: 28px;
+        display: inline-block;
+    margin: 10px 0;
+    position: relative;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid;
+    border-radius: 5px;
+    color: white;
+    top: auto;
+    background-color: #7DCEFA;
+    z-index: 1;
+    transform-origin: center center;
     }
+    #yesButton {
+    background-color: #FFC0CB;
+    margin-top: 20px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    z-index: 10;
+}
+
+#noButton {
+    background-color: #E0E0E0;
+    padding: 10px 15px;
+}
+
 
 
 
