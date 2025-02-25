@@ -56,9 +56,9 @@ noButton.addEventListener('click', function() {
     `;
     noButton.textContent = noButtonTexts[currentIndex];
 
-    yesButton.style.transform = `scale(${1 + noClicks * 0.1})`;
+    yesButton.style.transform = `scale(${1 + noClicks * 0.23})`;
     noButton.style.transform = `scale(${1 - noClicks * 0.1})`;
-
+    yesButton.style.ce= `${299+ noClicks * 100}%`;
     if (noClicks >= questionImages.length) {
         noButton.style.display = 'none';
     }
