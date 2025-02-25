@@ -12,7 +12,6 @@ body {
 .container {
     text-align: center;
     width: 500px;
-    height: auto;
     position: relative;
     overflow: hidden;
 }
@@ -24,7 +23,6 @@ body {
 }
 
 button {
-    font-family: Arial, sans-serif;
     display: inline-block;
     margin: 10px 0 ;
     position: relative;
