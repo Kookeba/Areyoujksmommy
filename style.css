@@ -23,6 +23,7 @@ body {
 }
 
 button {
+    font-family: Arial, sans-serif;
     display: inline-block;
     margin: 10px 0 ;
     position: relative;
@@ -60,6 +61,7 @@ button {
     }
 
     button {
-        font-size: 8px;
+        font-size: 20px;
+        transform-origin: center center;
     }
 }
