@@ -12,12 +12,13 @@ body {
 .container {
     text-align: center;
     width: 500px;
+    height: auto;
     position: relative;
-
+    overflow: hidden;
 }
 
 .question-image ,.love-image{
-    width: 70%;
+    width: 60%;
     height: auto;
     margin-bottom: 20px;
 }
@@ -56,6 +57,9 @@ button {
     margin-left: 5px;
 }
 @media (max-width: 500px) {
+    body {
+        font-size: 20px; /* 在小屏幕上，全局字体大小减小 */
+    }
     .question-image {
         width: 50%;
     }

@@ -1,6 +1,6 @@
 const yesButton = document.getElementById('yesButton');
 const noButton = document.getElementById('noButton');
-const questionContainer = document.getElementById('questionContainer');
+const questionImage = document.getElementById('questionImage');
 
 yesButton.addEventListener('click', function() {
     window.location.href = 'love.html';
@@ -43,16 +43,17 @@ const questions = [
 ];
 
 noButton.addEventListener('click', function() {
-    noClicks++;
+    noClicks++; // 点击次数自增1
     if (noClicks <= questionImages.length) {
-        const currentIndex = (noClicks - 1) % questionImages.length;
-        questionContainer.innerHTML = `
-            <img src="${questionImages[currentIndex]}" alt="Question Image ${currentIndex + 1}" class="question-image">
-            <h1>${questions[currentIndex]}</h1>
-        `;
-        noButton.textContent = noButtonTexts[currentIndex];
-        yesButton.style.transform = `scale(${1 + noClicks *0.2})`;
-        noButton.style.transform = `scale(${1 - noClicks* 0.1})`;
+        const currentIndex = (noClicks - 1) % questionImages.length; // 循环使用取模运算
+
+        questionImage.src = questionImages[currentIndex]; // 更新图片源
+        questionImage.alt = `Question Image ${currentIndex + 1}`; // 更新图片的 alt 文本
+        noButton.textContent = noButtonTexts[currentIndex]; // 更新“不可以”按钮的文字
+
+        yesButton.style.transform = `scale(${1 + noClicks * 0.2})`; // 放大“可以”按钮
+        noButton.style.transform = `scale(${1 - noClicks * 0.1})`; // 缩小“不可以”按钮
     } else {
+        noButton.style.display = 'none'; // 隐藏“不可以”按钮
     }
 });
