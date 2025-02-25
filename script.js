@@ -28,8 +28,8 @@ const questionImages = [
     "IMG_7304.JPG",
     "question-image-4.jpg",
     "question-image-3.jpg",
-    "question-image-6.jpg","question-image-6.jpg","question-image-6.jpg","question-image-6.jpg","question-image-6.jpg","question-image-6.jpg",
-    "question-image-6.jpg",
+    "question-image-3.jpg","question-image-3.jpg","question-image-3.jpg","question-image-3.jpg","question-image-3.jpg","question-image-3.jpg",
+    "question-image-3.jpg",
 ];
 
 const questions = [
