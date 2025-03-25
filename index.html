@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可以成为锅锅的妈咪吗</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            max-width: 80%;
+            position: relative;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        #yesBtn {
+            background-color: #e78181;
+            color: white;
+            z-index: 2;
+        }
+
+        #noBtn {
+            background-color: #a7c8f3;
+            color: white;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="question">可以成为我的妈妈吗？</h1>
+    <img id="image" src="IMG_7304.JPG" alt="图片">
+    <div class="buttons">
+        <button id="yesBtn" onclick="chooseYes()">可以</button>
+        <button id="noBtn" onclick="chooseNo()">不要</button>
+    </div>
+    <script>
+        const questions = [
+            {
+                text: "可以成为我的妈妈吗？",
+                src: "question-image.jpg"
+            },
+            {
+                text: "可以成为我的妈妈吗？",
+                src: "IMB_R7kqv3.GIF",
+                noBtnText: "锅锅知道妈咪点错惹"
+            },
+            {
+                text: "可以成为我的妈妈吗？",
+                src: "question-image-2.jpg",
+                noBtnText: "不许选这个！"
+            },
+            {
+                text: "可以成为我的妈妈吗？",
+                src: "IMG_7125.GIF",
+                noBtnText: "不要啦！"
+            }
+        ];
+        let currentIndex = 0;
+
+        function chooseYes() {
+            window.location.href = '爱妈咪.html';
+        }
+
+        function chooseNo() {
+            if (currentIndex < questions.length - 1) {
+                currentIndex++;
+            }
+            const questionObj = questions[currentIndex];
+            document.getElementById('question').textContent = questionObj.text;
+            document.getElementById('image').src = questionObj.src;
+            const noBtn = document.getElementById('noBtn');
+            if (questionObj.noBtnText) {
+                noBtn.textContent = questionObj.noBtnText;
+            }
+
+            const yesBtn = document.getElementById('yesBtn');
+            const noScale = parseFloat(noBtn.style.transform.replace('scale(', '').replace(')', '')) || 1;
+
+            if (noScale > 0.2) {
+                noBtn.style.transform = `scale(${noScale - 0.1})`;
+            }
+
+            const yesScale = parseFloat(yesBtn.style.transform.replace('scale(', '').replace(')', '')) || 1;
+            if (yesScale < 3) {
+                yesBtn.style.transform = `scale(${yesScale + 0.1})`;
+            }
+
+            const yesBtnWidth = yesBtn.offsetWidth * (yesScale + 0.1);
+            const noBtnWidth = noBtn.offsetWidth * (noScale - 0.1);
+            const buttonsContainer = document.querySelector('.buttons');
+            const containerWidth = buttonsContainer.offsetWidth;
+            const remainingSpace = containerWidth - yesBtnWidth - noBtnWidth - 10;
+            if (remainingSpace < 0) {
+                noBtn.style.marginLeft = `${remainingSpace}px`;
+            }
+        }
+    </script>
+</body>
+
+</html>
